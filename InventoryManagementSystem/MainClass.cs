@@ -17,6 +17,7 @@ namespace InventoryManagementSystem
 
         }
         public static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+<<<<<<< Updated upstream
         static string conn = "";
         public static string ConStr()
         {
@@ -33,6 +34,11 @@ namespace InventoryManagementSystem
             }
             return conn;
         }
+=======
+        //public static string ConStr = File.ReadAllText(path + "\\connect");
+        public static string ConStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\GIT\Inventory-Management-System\dbIMS\dbIMS.mdf;Integrated Security=True;Connect Timeout=30";
+        public static SqlConnection con = new SqlConnection(ConStr);
+>>>>>>> Stashed changes
 
         public static SqlConnection con = new SqlConnection(ConStr());
         public static void SNO(DataGridView gv, string columnName)
