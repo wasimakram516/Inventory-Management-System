@@ -33,11 +33,15 @@
             this.txtDatabase = new System.Windows.Forms.TextBox();
             this.txtDataSource = new System.Windows.Forms.TextBox();
             this.chkISecurity = new System.Windows.Forms.CheckBox();
-            this.txtSave = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUserID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.errServer = new System.Windows.Forms.Label();
+            this.errDatabase = new System.Windows.Forms.Label();
+            this.errUserID = new System.Windows.Forms.Label();
+            this.errPassword = new System.Windows.Forms.Label();
             this.LeftPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -47,29 +51,33 @@
             // 
             // LeftPanel
             // 
-            this.LeftPanel.Size = new System.Drawing.Size(280, 958);
+            this.LeftPanel.Size = new System.Drawing.Size(280, 772);
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.errPassword);
+            this.panel5.Controls.Add(this.errUserID);
+            this.panel5.Controls.Add(this.errDatabase);
+            this.panel5.Controls.Add(this.errServer);
             this.panel5.Controls.Add(this.txtPassword);
             this.panel5.Controls.Add(this.txtUserID);
             this.panel5.Controls.Add(this.txtDatabase);
             this.panel5.Controls.Add(this.txtDataSource);
             this.panel5.Controls.Add(this.chkISecurity);
-            this.panel5.Controls.Add(this.txtSave);
+            this.panel5.Controls.Add(this.btnSave);
             this.panel5.Controls.Add(this.lblPassword);
             this.panel5.Controls.Add(this.lblUserID);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label2);
-            this.panel5.Size = new System.Drawing.Size(280, 893);
+            this.panel5.Size = new System.Drawing.Size(280, 707);
             // 
             // RightPanel
             // 
-            this.RightPanel.Size = new System.Drawing.Size(834, 958);
+            this.RightPanel.Size = new System.Drawing.Size(834, 772);
             // 
             // panel6
             // 
-            this.panel6.Size = new System.Drawing.Size(834, 893);
+            this.panel6.Size = new System.Drawing.Size(834, 707);
             // 
             // lblTopUser
             // 
@@ -119,18 +127,18 @@
             this.chkISecurity.UseVisualStyleBackColor = true;
             this.chkISecurity.CheckedChanged += new System.EventHandler(this.chkISecurity_CheckedChanged);
             // 
-            // txtSave
+            // btnSave
             // 
-            this.txtSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtSave.FlatAppearance.BorderSize = 2;
-            this.txtSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtSave.Location = new System.Drawing.Point(12, 417);
-            this.txtSave.Name = "txtSave";
-            this.txtSave.Size = new System.Drawing.Size(262, 41);
-            this.txtSave.TabIndex = 14;
-            this.txtSave.Text = "&SAVE";
-            this.txtSave.UseVisualStyleBackColor = true;
-            this.txtSave.Click += new System.EventHandler(this.txtSave_Click);
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.FlatAppearance.BorderSize = 2;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Location = new System.Drawing.Point(12, 417);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(262, 41);
+            this.btnSave.TabIndex = 14;
+            this.btnSave.Text = "&SAVE";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.txtSave_Click);
             // 
             // lblPassword
             // 
@@ -168,12 +176,48 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Server";
             // 
+            // errServer
+            // 
+            this.errServer.AutoSize = true;
+            this.errServer.Location = new System.Drawing.Point(261, 190);
+            this.errServer.Name = "errServer";
+            this.errServer.Size = new System.Drawing.Size(13, 17);
+            this.errServer.TabIndex = 20;
+            this.errServer.Text = "*";
+            // 
+            // errDatabase
+            // 
+            this.errDatabase.AutoSize = true;
+            this.errDatabase.Location = new System.Drawing.Point(261, 238);
+            this.errDatabase.Name = "errDatabase";
+            this.errDatabase.Size = new System.Drawing.Size(13, 17);
+            this.errDatabase.TabIndex = 21;
+            this.errDatabase.Text = "*";
+            // 
+            // errUserID
+            // 
+            this.errUserID.AutoSize = true;
+            this.errUserID.Location = new System.Drawing.Point(261, 291);
+            this.errUserID.Name = "errUserID";
+            this.errUserID.Size = new System.Drawing.Size(13, 17);
+            this.errUserID.TabIndex = 22;
+            this.errUserID.Text = "*";
+            // 
+            // errPassword
+            // 
+            this.errPassword.AutoSize = true;
+            this.errPassword.Location = new System.Drawing.Point(261, 339);
+            this.errPassword.Name = "errPassword";
+            this.errPassword.Size = new System.Drawing.Size(13, 17);
+            this.errPassword.TabIndex = 23;
+            this.errPassword.Text = "*";
+            // 
             // Settings
             // 
-            this.AcceptButton = this.txtSave;
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 958);
+            this.ClientSize = new System.Drawing.Size(1114, 772);
             this.Name = "Settings";
             this.LeftPanel.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
@@ -192,10 +236,14 @@
         private System.Windows.Forms.TextBox txtDatabase;
         private System.Windows.Forms.TextBox txtDataSource;
         private System.Windows.Forms.CheckBox chkISecurity;
-        private System.Windows.Forms.Button txtSave;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblPassword;
         private System.Windows.Forms.Label lblUserID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label errPassword;
+        private System.Windows.Forms.Label errUserID;
+        private System.Windows.Forms.Label errDatabase;
+        private System.Windows.Forms.Label errServer;
     }
 }
