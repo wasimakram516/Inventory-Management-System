@@ -16,6 +16,7 @@ namespace InventoryManagementSystem
         {
 
         }
+        //Function to read folder path
         public static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         static string conn = "";
         public static string ConStr()
