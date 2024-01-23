@@ -44,14 +44,14 @@
             // 
             // LeftPanel
             // 
-            this.LeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.LeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.LeftPanel.Controls.Add(this.panel5);
             this.LeftPanel.Controls.Add(this.panel3);
             this.LeftPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.LeftPanel.Location = new System.Drawing.Point(0, 0);
             this.LeftPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.LeftPanel.Name = "LeftPanel";
-            this.LeftPanel.Size = new System.Drawing.Size(280, 935);
+            this.LeftPanel.Size = new System.Drawing.Size(280, 772);
             this.LeftPanel.TabIndex = 0;
             // 
             // panel5
@@ -61,7 +61,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 65);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(280, 870);
+            this.panel5.Size = new System.Drawing.Size(280, 707);
             this.panel5.TabIndex = 1;
             // 
             // panel3
@@ -95,7 +95,7 @@
             this.RightPanel.Location = new System.Drawing.Point(280, 0);
             this.RightPanel.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.RightPanel.Name = "RightPanel";
-            this.RightPanel.Size = new System.Drawing.Size(834, 935);
+            this.RightPanel.Size = new System.Drawing.Size(834, 772);
             this.RightPanel.TabIndex = 1;
             // 
             // panel6
@@ -104,7 +104,7 @@
             this.panel6.Location = new System.Drawing.Point(0, 65);
             this.panel6.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(834, 870);
+            this.panel6.Size = new System.Drawing.Size(834, 707);
             this.panel6.TabIndex = 2;
             // 
             // panel4
@@ -132,7 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 935);
+            this.ClientSize = new System.Drawing.Size(1114, 772);
             this.ControlBox = false;
             this.Controls.Add(this.RightPanel);
             this.Controls.Add(this.LeftPanel);

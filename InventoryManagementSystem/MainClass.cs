@@ -17,10 +17,24 @@ namespace InventoryManagementSystem
 
         }
         public static string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-        //public static string ConStr = File.ReadAllText(path + "\\connect");
-        public static string ConStr = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\SoftwareProjects\InventoryManagementSystem\InventoryManagementSystem\DB\IMSdb.mdf;Integrated Security=True";
-        public static SqlConnection con = new SqlConnection(ConStr);
+        static string conn = "";
+        public static string ConStr()
+        {
+            if (File.Exists(path + "\\connect"))
+            {
+                conn = File.ReadAllText(path + "\\connect");
+            }
+            else
+            {
+                Settings obj = new Settings();
+                obj.MdiParent = MDI.ActiveForm;
+                obj.WindowState = FormWindowState.Maximized;
+                obj.Show();
+            }
+            return conn;
+        }
 
+        public static SqlConnection con = new SqlConnection(ConStr());
         public static void SNO(DataGridView gv, string columnName)
         {
             int count = 0;

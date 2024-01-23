@@ -22,19 +22,13 @@ namespace InventoryManagementSystem
         {
             if (chkISecurity.Checked)
             {
-                txtUserID.Text = "";
-                txtUserID.Visible = false;
-                lblUserID.Visible = false;
-                lblPassword.Visible = false;
-                txtPassword.Text = "";
-                txtPassword.Visible = false;
+                txtUserID.Enabled = false;
+                txtPassword.Enabled = false;
             }
             else
             {
-                lblUserID.Visible = true;
-                lblPassword.Visible = true;
-                txtUserID.Visible = true;
-                txtPassword.Visible = true;
+                txtUserID.Enabled = true;
+                txtPassword.Enabled = true;
             }
         }
 
@@ -43,14 +37,16 @@ namespace InventoryManagementSystem
             StringBuilder sb = new StringBuilder();
             if (chkISecurity.Checked)
             {
-                //if (txtDataSource.Text == "") { errDataSource.Visible = true; } else { errDataSource.Visible = false; }
-                //if (txtDatabase.Text == "") { errDatabase.Visible = true; } else { errDatabase.Visible = false; }
-                //if (errDataSource.Visible || errDatabase.Visible)
-                //{
-                //    MessageBox.Show("Fields with * are mandatory!");
-                //}
-                //else
-                //{
+                txtUserID.Enabled = false;
+                txtPassword.Enabled = false;
+                if (txtDataSource.Text == "") { errServer.Visible = true; } else { errServer.Visible = false; }
+                if (txtDatabase.Text == "") { errDatabase.Visible = true; } else { errDatabase.Visible = false; }
+                if (errServer.Visible || errDatabase.Visible)
+                {
+                    MessageBox.Show("Fields with * are mandatory!");
+                }
+                else
+                {
                     sb.Append("Data Source=" + txtDataSource.Text + ";Initial Catalog=" + txtDatabase.Text + ";Integrated Security=true;MultipleActiveResultSets=true");
                     File.WriteAllText(MainClass.path + "\\connect", sb.ToString());
                     DialogResult dr = MessageBox.Show("Settings saved Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -59,20 +55,20 @@ namespace InventoryManagementSystem
                         Login log = new Login();
                         MainClass.ShowWin(log, this, MDI.ActiveForm);
                     }
-               // }
+                }
             }
             else
             {
-                //if (txtDataSource.Text == "") { errDataSource.Visible = true; } else { errDataSource.Visible = false; }
-                //if (txtDatabase.Text == "") { errDatabase.Visible = true; } else { errDatabase.Visible = false; }
-                //if (txtUsername.Text == "") { errUsername.Visible = true; } else { errUsername.Visible = false; }
-                //if (txtPassword.Text == "") { errPassword.Visible = true; } else { errPassword.Visible = false; }
-                //if (errDataSource.Visible || errDatabase.Visible || errUsername.Visible || errPassword.Visible)
-                //{
-                //    MessageBox.Show("Fields with * are mandatory!");
-                //}
-                //else
-                //{
+                if (txtDataSource.Text == "") { errServer.Visible = true; } else { errServer.Visible = false; }
+                if (txtDatabase.Text == "") { errDatabase.Visible = true; } else { errDatabase.Visible = false; }
+                if (txtUserID.Text == "") { errUserID.Visible = true; } else { errUserID.Visible = false; }
+                if (txtPassword.Text == "") { errPassword.Visible = true; } else { errPassword.Visible = false; }
+                if (errServer.Visible || errDatabase.Visible || errUserID.Visible || errPassword.Visible)
+                {
+                   MainClass.ShowMsg("Fields with * are mandatory!", "Error", "Error");
+                }
+                else
+                {
                     sb.Append("Data Source=" + txtDataSource.Text + ";Initial Catalog=" + txtDatabase.Text + ";User ID=" + txtUserID.Text + ";Password=" + txtPassword.Text + ";MultipleActiveResultSets=true");
                     File.WriteAllText(MainClass.path + "\\connect", sb.ToString());
                     DialogResult dr = MessageBox.Show("Settings saved Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -81,7 +77,7 @@ namespace InventoryManagementSystem
                         Login log = new Login();
                         MainClass.ShowWin(log, this, MDI.ActiveForm);
                     }
-                //}
+                }
             }
         }
 
